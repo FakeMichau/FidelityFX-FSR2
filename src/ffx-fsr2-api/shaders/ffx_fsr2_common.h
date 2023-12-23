@@ -505,6 +505,8 @@ FfxFloat32x3 UnprepareRgb(FfxFloat32x3 fRgb, FfxFloat32 fExposure)
     fRgb /= fExposure;
     fRgb *= PreExposure();
 
+    fRgb = clamp(fRgb, 0.0f, FSR2_FP16_MAX);
+
     return fRgb;
 }
 
